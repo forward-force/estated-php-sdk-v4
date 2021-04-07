@@ -1,5 +1,5 @@
 {
-    "name": "force/estated-api-sdk",
+    "name": "forward-force/estated-api-sdk",
     "description": "PHP Wrapper around Estated API",
     "type": "library",
     "keywords": [
