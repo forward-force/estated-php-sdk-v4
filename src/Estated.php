@@ -22,22 +22,22 @@ class Estated
 
     /**
      * Property API Overview
-     * @param string $street_address Field Street Address (REQUIRED)
+     * @param string $address Field Street Address (REQUIRED)
      * @param string $city  Field City (REQUIRED)
      * @param string $state Field State (REQUIRED)
-     * @param string $zip_code Field Zip Code (OPTIONAL)
+     * @param string $zipCode Field Zip Code (OPTIONAL)
      *
      * @return array
      */
-    public function generalData(string $street_address, string $city, string $state, string $zip_code): array
+    public function generalData(string $address, string $city, string $state, string $zipCode): array
     {
         try {
             $options = [
                 'token' => $this->token,
-                'street_address' => $street_address,
+                'street_address' => $address,
                 'city' => $city,
                 'state' => $state,
-                'zip_code' => $zip_code
+                'zip_code' => $zipCode
             ];
             $response = $this->client->get(self::BASE_URL . '/property?' . http_build_query($options));
         } catch (RequestException $e) {
