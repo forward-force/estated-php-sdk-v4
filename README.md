@@ -4,7 +4,7 @@
 
 Install via composer as follows:
 ```
-composer require force/estated-api-sdk
+composer require forward-force/estated-api-sdk
 ```
 
 ## Usage
