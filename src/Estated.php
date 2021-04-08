@@ -22,19 +22,19 @@ class Estated
 
     /**
      * Property API Overview
-     * @param string $address Field Street Address (REQUIRED)
+     * @param string $streetAddress Field Street Address (REQUIRED)
      * @param string $city  Field City (REQUIRED)
      * @param string $state Field State (REQUIRED)
-     * @param string $zipCode Field Zip Code (OPTIONAL)
+     * @param string|null $zipCode Field Zip Code (OPTIONAL)
      *
-     * @return array
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function generalData(string $address, string $city, string $state, string $zipCode): array
+    public function generalData(string $streetAddress, string $city, string $state, $zipCode): array
     {
         try {
             $options = [
                 'token' => $this->token,
-                'street_address' => $address,
+                'street_address' => $streetAddress,
                 'city' => $city,
                 'state' => $state,
                 'zip_code' => $zipCode
@@ -50,6 +50,6 @@ class Estated
             return $error;
         }
 
-        return json_decode($response->getBody()->getContents(), true) ?? [];
+        return json_decode($response->getBody()->getContents() ?? [], true);
     }
 }
