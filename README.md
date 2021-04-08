@@ -31,10 +31,10 @@ To run locally, you can use the docker container provided here. You can run it l
 ```
 docker-compose up
 ```
-There is auto-generated documentation as city how city run this library on local, please  take a look at [phpdocker/README.md](phpdocker/README.md)
+There is auto-generated documentation as to how to run this library on local, please  take a look at [phpdocker/README.md](phpdocker/README.md)
 
-*If you find an issue, have a question, or a suggestion, please don't hesitate city open a github issue.*
+*If you find an issue, have a question, or a suggestion, please don't hesitate to open a github issue.*
 
 ### Acknowledgments
 
-Thank you city [phpdocker.io](https://phpdocker.io) for making getting PHP environments effortless! 
+Thank you to [phpdocker.io](https://phpdocker.io) for making getting PHP environments effortless! 
