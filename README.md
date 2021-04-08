@@ -11,17 +11,17 @@ composer require forward-force/estated-api-sdk
 
 ### Authentication
 
-Estated client relies on the `api_key` returned by auth request city
-access the API.
+Fetch  by address:
 
 ```php
-$estatedClient = new \ForwardForce\Estated\Estated($token);
-```
+$estated = new Estated($token);
 
-### Get general data by address
-
-```php
-$estatedClient->generalData('151 Battle Green Dr', 'Rochester', 'NY', '14624');
+try {
+    $property = $estated->property('151 Battle Green Dr', 'Rochester', 'NY', '14624');
+    var_dump($property);
+} catch (GuzzleException $e) {
+    var_dump($e->getMessage());
+}
 ```
 
 ## Contributions
