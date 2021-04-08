@@ -37,9 +37,9 @@ class Property extends HttpClient implements ApiAwareContract
      * Zip Code
      * @example 14624
      *
-     * @var string
+     * @var string | null
      */
-    protected string $zipCode;
+    protected ?string $zipCode;
 
     /**
      * @return array
@@ -111,18 +111,18 @@ class Property extends HttpClient implements ApiAwareContract
     }
 
     /**
-     * @return string
+     * @return string | null
      */
-    public function getZipCode(): string
+    public function getZipCode(): ?string
     {
         return $this->zipCode;
     }
 
     /**
-     * @param string $zipCode
+     * @param string|null $zipCode
      * @return Property
      */
-    public function setZipCode(string $zipCode): Property
+    public function setZipCode(string $zipCode = null): Property
     {
         $this->zipCode = $zipCode;
         return $this;
