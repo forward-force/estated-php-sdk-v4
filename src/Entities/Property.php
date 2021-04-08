@@ -47,10 +47,11 @@ class Property extends HttpClient implements ApiAwareContract
      */
     public function fetch(): array
     {
-        $this->addBodyParameter('city', $this->getCity());
-        $this->addBodyParameter('street_address', $this->getStreetAddress());
-        $this->addBodyParameter('state', $this->getState());
-        $this->addBodyParameter('zip_code', $this->getZipCode());
+        $this->addQueryParameter('city', $this->getCity());
+        $this->addQueryParameter('street_address', $this->getStreetAddress());
+        $this->addQueryParameter('city', $this->getCity());
+        $this->addQueryParameter('state', $this->getState());
+        $this->addQueryParameter('zip_code', $this->getZipCode());
 
         return $this->get($this->buildQuery('/property'));
     }
@@ -87,8 +88,7 @@ class Property extends HttpClient implements ApiAwareContract
      */
     public function setCity(string $city): Property
     {
-        $this->city = filter_var($city, FILTER_SANITIZE_NUMBER_INT);
-        $this->city = str_replace('-', '', $this->city);
+        $this->city = $city;
         return $this;
     }
 

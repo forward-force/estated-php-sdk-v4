@@ -14,8 +14,8 @@ class HttpClientTest extends TestCase
         try {
             $reflector = new \ReflectionProperty($fixture, 'client');
             $reflector->setAccessible(true);
-            $path = $reflector->getValue($fixture)->getConfig()['base_uri']->getPath();
-            $this->assertSame('/api/v1/123456/', $path);
+            $host = $reflector->getValue($fixture)->getConfig()['base_uri']->getHost();
+            $this->assertSame('apis.estated.com', $host);
         } catch (\ReflectionException $e) {
             $this->assertTrue(false);
         }
@@ -30,12 +30,12 @@ class HttpClientTest extends TestCase
             $reflector->setAccessible(true);
 
             $query = $reflector->invoke($fixture, '/test');
-            $this->assertSame('/test', $query);
+            $this->assertSame($fixture::API_VERSION . '/test/?token=123456', $query);
 
             $fixture = new HttpClient('123456');
             $fixture->addQueryParameter('foo', 'bar');
             $query = $reflector->invoke($fixture, '/test');
-            $this->assertSame('/test/?foo=bar', $query);
+            $this->assertSame($fixture::API_VERSION . '/test/?token=123456&foo=bar', $query);
         } catch (\ReflectionException $e) {
             $this->assertTrue(false);
         }

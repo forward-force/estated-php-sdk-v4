@@ -14,7 +14,7 @@ class HttpClient
     use Parametarable;
 
     public const API_VERSION = 'v4';
-    public const BASE_URL = 'https://apis.estated.com/' . self::API_VERSION;
+    public const BASE_URL = 'https://apis.estated.com';
 
     /**
      * Guzzle Client
@@ -90,6 +90,7 @@ class HttpClient
      */
     protected function buildQuery(string $endpoint): string
     {
+        $endpoint = self::API_VERSION . $endpoint;
         if (empty($this->getQueryString())) {
             return $endpoint;
         }
