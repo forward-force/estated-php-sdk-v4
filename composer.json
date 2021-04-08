@@ -41,6 +41,7 @@
     "scripts": {
         "psalm": "vendor/bin/psalm -c psalm.xml --show-info=true",
         "test": "vendor/bin/phpunit --colors=always",
-        "phpcs": "vendor/bin/phpcs src/"
+        "phpcs": "vendor/bin/phpcs src/",
+        "phpmd": "vendor/bin/phpmd src/ text phpmd.xml"
     }
 }

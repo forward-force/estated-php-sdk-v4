@@ -11,7 +11,7 @@ services:
       environment:
         XDEBUG_CONFIG: "remote_host=docker.for.mac.host.internal"
         PHP_IDE_CONFIG: "serverName=estated-Docker"
+        ESTATED_API_KEY: ESTATED_API_KEY
       volumes:
         - .:/application
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/cli/conf.d/99-overrides.ini
-
