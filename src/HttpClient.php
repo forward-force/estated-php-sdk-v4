@@ -7,6 +7,7 @@ use ForwardForce\Estated\Traits\Parametarable;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use \Exception;
 
 class HttpClient
 {
@@ -77,6 +78,10 @@ class HttpClient
 
         if (empty($response)) {
             return [];
+        }
+
+        if ($response['data'] == null && isset($response['warnings'][0]['description'])) {
+            throw new Exception($response['warnings'][0]['description']);
         }
 
         return $response['data'];
