@@ -7,7 +7,7 @@ use ForwardForce\Estated\Traits\Parametarable;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
-use \Exception;
+use Exception;
 
 class HttpClient
 {
