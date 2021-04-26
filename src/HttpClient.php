@@ -79,6 +79,10 @@ class HttpClient
             return [];
         }
 
+        if ($response['data'] == null && isset($response['warnings'][0]['description'])) {
+            throw new \Exception($response['warnings'][0]['description']);
+        }
+
         return $response['data'];
     }
 
